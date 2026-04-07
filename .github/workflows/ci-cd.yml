@@ -31,7 +31,7 @@ jobs:
       run: |
         docker push ${{ secrets.DOCKER_USERNAME }}/3tier-backend
 
-    # 🔹 4. Frontend Image Build & Push
+    # 🔹 4. Frontend Image Build & Pushs
     - name: Build Frontend Image
       run: |
         docker build -t ${{ secrets.DOCKER_USERNAME }}/3tier-frontend ./frontend
