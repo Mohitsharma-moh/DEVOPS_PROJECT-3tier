@@ -11,31 +11,29 @@ jobs:
 
     steps:
 
-    # 1. Code checkout
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    # 2. Docker Hub login
     - name: Login to Docker Hub
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
+        username: mohit25s
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    # 🔹 3. Backend Image Build & Push
+    # 🔹 Backend
     - name: Build Backend Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/3tier-backend ./backend
+        docker build -t mohit25s/3tier-backend ./backend
 
     - name: Push Backend Image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/3tier-backend
+        docker push mohit25s/3tier-backend
 
-    # 🔹 4. Frontend Image Build & Pushs
+    # 🔹 Frontend
     - name: Build Frontend Image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/3tier-frontend ./frontend
+        docker build -t mohit25s/3tier-frontend ./frontend
 
     - name: Push Frontend Image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/3tier-frontend
+        docker push mohit25s/3tier-frontend
